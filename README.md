@@ -26,8 +26,6 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-This is a useless sentence.
-
 ## Installation
 
 ```bash

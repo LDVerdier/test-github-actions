@@ -16,16 +16,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.14.x
-          cache: npm
+          cache: yarn
 
       - name: Install
-        run: npm ci
+        run: yarn
 
       - name: Lint
-        run: npm lint
+        run: yarn lint
 
       - name: Test
-        run: npm test
+        run: yarn test:cov
+
+      - name: Test e2e
+        run: yarn test:e2e
 
 # determine the proper commands to run
 # determiner the triggers
