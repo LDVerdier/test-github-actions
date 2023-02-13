@@ -14,8 +14,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     if: |
-      github.event.pull_request.closed == false ||
-      (github.event.pull_request.merged == true && github.event.pull_request.closed == true)
+      github.event.pull_request.closed == false
+    # if: |
+    #   github.event.pull_request.closed == false ||
+    #   (github.event.pull_request.merged == true && github.event.pull_request.closed == true)
     steps:
       - name: Checkout
         uses: actions/checkout@v3
