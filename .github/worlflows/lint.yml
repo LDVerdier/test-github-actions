@@ -1,0 +1,32 @@
+name: 'Lint, format and test'
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.x
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm lint
+
+      - name: Test
+        run: npm test
+
+# determine the proper commands to run
+# determiner the triggers
+# on pull request created and merged (and on each commit of the pull request)
