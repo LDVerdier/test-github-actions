@@ -25,7 +25,7 @@ jobs:
         run: yarn lint
 
       - name: Format
-        run: yarn format
+        run: yarn format-check
 
       - name: Test
         run: yarn test:cov
