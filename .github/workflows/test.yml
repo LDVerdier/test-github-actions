@@ -35,6 +35,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: format_lint
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.x
+          cache: yarn
+
+      - name: Install
+        run: yarn
       - name: Test
         run: yarn test:cov
 
