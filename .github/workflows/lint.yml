@@ -21,11 +21,11 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Lint
-        run: yarn lint
-
       - name: Format
         run: yarn format-check
+
+      - name: Lint
+        run: yarn lint
 
       - name: Test
         run: yarn test:cov
