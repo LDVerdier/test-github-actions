@@ -1,0 +1,38 @@
+name: 'format_ lint_test'
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  format_lint_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.x
+          cache: yarn
+
+      - name: Install
+        run: yarn
+      
+      - name: Format
+        run: yarn format-check
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test:cov
+
+      - name: Test e2e
+        run: yarn test:e2e
