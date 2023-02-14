@@ -1,17 +1,14 @@
-name: 'format_ lint_test'
+name: 'Test after merge'
 
 on:
   pull_request:
-    branches:
-      - main
     types:
-      - opened
-      - synchronize
-      - reopened
+      - closed
 
 jobs:
   format_lint_test:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -24,15 +21,6 @@ jobs:
 
       - name: Install
         run: yarn
-      
-      - name: Format
-        run: yarn format-check
-
-      - name: Lint
-        run: yarn lint
 
       - name: Test
-        run: yarn test:cov
-
-      - name: Test e2e
-        run: yarn test:e2e
+        uses: ./.github/actions/test
