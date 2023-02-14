@@ -1,5 +1,5 @@
 name: test
-description: test the code
+description: Run unit and e2e tests
 runs:
   using: 'composite'
   steps:
@@ -10,4 +10,3 @@ runs:
     - name: E2E test
       run: yarn test:e2e
       shell: bash
-      

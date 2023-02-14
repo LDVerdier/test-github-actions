@@ -2,11 +2,13 @@ name: 'Test after merge'
 
 on:
   pull_request:
+    branches:
+      - main
     types:
       - closed
 
 jobs:
-  format_lint_test:
+  test:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
@@ -20,7 +22,7 @@ jobs:
           cache: yarn
 
       - name: Install
-        run: yarn
+        run: yarn --frozen-lockfile
 
       - name: Test
         uses: ./.github/actions/test
