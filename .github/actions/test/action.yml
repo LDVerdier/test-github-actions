@@ -1,0 +1,13 @@
+name: test
+description: test the code
+runs:
+  using: 'composite'
+  steps:
+    - name: Unit test
+      run: yarn test:cov
+      shell: bash
+
+    - name: E2E test
+      run: yarn test:e2e
+      shell: bash
+      

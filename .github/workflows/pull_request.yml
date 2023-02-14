@@ -25,14 +25,8 @@ jobs:
       - name: Install
         run: yarn
       
-      - name: Format
-        run: yarn format-check
-
-      - name: Lint
-        run: yarn lint
+      - name: Format and lint
+        uses: ./.github/actions/lint
 
       - name: Test
-        run: yarn test:cov
-
-      - name: Test e2e
-        run: yarn test:e2e
+        uses: ./.github/actions/test

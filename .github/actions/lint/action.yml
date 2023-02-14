@@ -1,0 +1,13 @@
+name: lint
+description: format and lint
+runs:
+  using: 'composite'
+  steps:
+    - name: Format
+      run: yarn format-check
+      shell: bash
+
+    - name: Lint
+      run: yarn lint
+      shell: bash
+      
