@@ -23,7 +23,7 @@ jobs:
           cache: yarn
 
       - name: Install
-        run: yarn
+        run: yarn --frozen-lockfile
       
       - name: Format and lint
         uses: ./.github/actions/lint
