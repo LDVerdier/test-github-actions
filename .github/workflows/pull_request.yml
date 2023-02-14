@@ -16,15 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.14.x
-          cache: yarn
+      # - name: Setup node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18.14.x
+      #     cache: yarn
 
-      - name: Install
-        run: yarn
+      # - name: Install
+      #   run: yarn
       
+      - name: Setup
+        uses: ./.github/actions/setup
+
       - name: Format and lint
         uses: ./.github/actions/lint
 
